@@ -1,0 +1,51 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 50px;
+    scroll-behavior: smooth; /* enable smooth scrolling */
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white; /* white background */
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* add a subtle shadow to make it stand out */
+    padding-right: 13.961%; 
+}
+
+nav ul {
+    list-style: none;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end; /* align to the right */
+}
+
+nav ul li {
+    margin: 0 10px; /* adjusted spacing a bit */
+}
+
+nav a {
+    text-decoration: none;
+    color: #333; /* changed color to dark for visibility on white background */
+    padding: 10px 20px; /* increased padding */
+    font-size: 18px; /* larger font */
+    border: 1px solid #333; /* border around the button */
+    border-radius: 5px; /* rounded corners */
+    transition: background-color 0.3s, color 0.3s; /* transition for hover effect */
+}
+
+nav a:hover {
+    background-color: #2980b9; /* color change on hover */
+    color: white; /* text color change on hover */
+}
+
+.section-anchor {
+    display: block;
+    padding-top: 70px;     /* Adjust this based on your navbar height */
+    margin-top: -70px;    /* Make this the negative value of padding-top */
+    visibility: hidden;
+}
