@@ -49,3 +49,7 @@ nav a:hover {
     margin-top: -70px;    /* Make this the negative value of padding-top */
     visibility: hidden;
 }
+
+.custom-button:hover {
+    background-color: #2980b9 !important; /* Hover color */
+}
