@@ -103,47 +103,72 @@ nav a:hover {
 }
 
 /* Default styles (optimized for mobile) */
+.video-buttons {
+    display: flex;
+    flex-direction: column; /* stack children vertically */
+    align-items: center; /* center children horizontally */
+    justify-content: center; /* center children vertically */
+    width: 100%; /* take the full width of its parent */
+}
+
 .scene-selection ul li a video {
-    max-width: 90%;  /* 90% of their container's width */
-    display: block;  /* Ensure they take up the full width */
-    margin: 0 auto;  /* Center them horizontally */
+    max-width: 90%;
+    display: block;
+    margin: 0 auto;
 }
 
 .video-buttons ul {
-    flex-direction: column;  /* Stack the buttons vertically */
-    width: 100%;  /* Ensure the ul takes the full width of its parent */
+    flex-direction: column; /* Stack the list items vertically */
+    width: 100%; /* take the full width of its parent */
+    display: flex;
+    align-items: center; /* center list items horizontally */
+    justify-content: center; /* center list items vertically */
 }
 
 .video-buttons ul li {
-    display: flex;  /* Make li flex containers to center the buttons */
-    justify-content: center;  /* Horizontally center the buttons */
-    width: 100%;  /* Make each li take the full width of the ul */
-    margin-bottom: 10px;  /* Add some spacing between stacked buttons */
+    display: flex; 
+    justify-content: center; /* Horizontally center the anchor tags */
+    width: 100%; 
+    margin-bottom: 10px; 
 }
 
 .video-buttons ul li a {
-    display: block;  /* Make each button take up the full width of its container */
-    text-align: center;  /* Center the button text */
+    display: block; 
+    text-align: center; 
 }
 
-/* Styles for larger screens (e.g., tablets and desktops) */
-@media screen and (min-width: 768px) {  /* Adjust breakpoint as needed */
+/* Styles for larger screens */
+@media screen and (min-width: 768px) {
     .scene-selection ul li a video {
-        max-width: 150px;  /* Thumbnail width for larger screens */
+        max-width: 150px; 
     }
     
     .video-buttons ul {
-        flex-direction: row;  /* Display buttons side by side */
+        flex-direction: row; 
     }
 
     .video-buttons ul li {
-        display: inline-block;  /* Reset flex display for li elements */
-        width: auto;  /* Reset width for li elements */
-        margin: 0 15px;  /* Horizontal spacing for side-by-side buttons */
-        margin-bottom: 0;  /* Reset vertical spacing */
+        display: inline-block;
+        width: auto;
+        margin: 0 15px;
+        margin-bottom: 0; 
     }
     
     .video-buttons ul li a {
-        display: inline;  /* Reset button display */
+        display: inline; 
+    }
+}
+
+/* Default styles (optimized for mobile) */
+.banner {
+    width: 100%;  /* Make it take the full width of its container on mobile */
+    height: auto;  /* Height will be automatically adjusted based on the width and video aspect ratio */
+}
+
+/* Styles for larger screens (e.g., desktops) */
+@media screen and (min-width: 768px) {  /* Adjust the 768px breakpoint if needed */
+    .banner {
+        height: 580px;  /* Set the height as specified */
+        width: auto;  /* Width will be adjusted based on the height and video aspect ratio */
     }
 }
