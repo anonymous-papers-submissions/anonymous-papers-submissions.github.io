@@ -12,7 +12,7 @@
 
 	<link rel='stylesheet' id='wayve-all-css' href='style.css' type='text/css' media='all' />
 	<link rel='stylesheet' id='wayve-all-css' href='custom.css' type='text/css' media='all' />
-	<script src="scripts.js" defer></script>
+	<script src="script.js" defer></script>
 	    
 </head>
 
@@ -21,7 +21,8 @@
 <article class='blog-post'>
 
 <nav>
-    <ul>
+  <ul>
+        <li><a href="#interact" data-scroll>Interactive Demos</a></li>    
         <li><a href="#action-rich" data-scroll>Action-Rich</a></li>
         <li><a href="#long-horizon" data-scroll>Long-Horizon</a></li>
         <li><a href="#diversity" data-scroll>Diversity</a></li>
@@ -51,13 +52,98 @@
     <video class=banner loop muted playsinline autoplay height=580><source src="materials/banner.mp4"></video>
 
 
-<div class="copy" >      
-<div class="copy" >  
-  <div class=content id="action-rich">
-    <h2><span style="font-weight: 400;">Action-Rich Simulations</span></h2>
-<p><span style="font-weight: 400;">One major difference between an interactive real-world simulator and typical video generation is that a simulator should support a diverse set of actions. Below, we demonstrate how UniSim can simulate different experiences given different actions starting from the same initial frame.</span></p>
+    <div class="copy" >
+
+  <div class="copy" >  
+    <div class=content id="interact">
+      <h2><span style="font-weight: 400;">Interactive Demos</span></h2>
+      <p><span style="font-weight: 400;">Please select an initial observation and language actions you would like to use for interaction.</span></p>
+    </div>
   </div>
+      
+
+<!-- Scene Selection Bar -->
+<div class="scene-selection">
+    <ul>
+        <li><a href="#" onclick="chooseScene('kitchen', event);" title="Kitchen Scene"><video preload="metadata" src="materials/cut_carrot-final.mp4" width="150"></video></a></li>
+        <li><a href="#" onclick="chooseScene('switch', event);" title="Switch Press Scene"><video preload="metadata" src="materials/press_left-final.mp4" width="150"></video></a></li>
+        <li><a href="#" onclick="chooseScene('uncover', event);" title="Uncover Scene"><video preload="metadata" src="materials/uncover_pen-final.mp4" width="150"></video></a></li>
+	<li><a href="#" onclick="chooseScene('gg', event);" title="Golden Gate Scene"><video preload="metadata" src="materials/gg_left.mp4" width="150"></video></a></li>
+	<li><a href="#" onclick="chooseScene('sc', event);" title="Sistine Chapel Scene"><video preload="metadata" src="materials/sc_left.mp4" width="150"></video></a></li>	
+    </ul>
 </div>
+
+<!-- Buttons -->
+<div class="video-buttons" id="kitchen-buttons">
+    <ul>
+        <li><a href="#" onclick="playVideo('materials/wash_hand-final.mp4', event);">Wash hands</a></li>
+        <li><a href="#" onclick="playVideo('materials/pick_bowl-final.mp4', event);">Pick up bowl</a></li>
+        <li><a href="#" onclick="playVideo('materials/cut_carrot-final.mp4', event);">Cut carrots</a></li>
+        <li><a href="#" onclick="playVideo('materials/dry_hand-final.mp4', event);">Dry hands</a></li>
+    </ul>
+</div>
+
+<!-- Buttons for Switch Scene -->
+<div class="video-buttons" id="switch-buttons" style="display: none;">
+    <ul>
+        <li><a href="#" onclick="playVideo('materials/press_left-final.mp4', event);">Press left</a></li>
+        <li><a href="#" onclick="playVideo('materials/press_middle-final.mp4', event);">Press middle</a></li>
+        <li><a href="#" onclick="playVideo('materials/press_right-final.mp4', event);">Press right</a></li>
+        <li><a href="#" onclick="playVideo('materials/press_plug-final.mp4', event);">Plug in cable</a></li>
+    </ul>
+</div>
+
+<!-- Buttons for Uncover Scene -->
+<div class="video-buttons" id="uncover-buttons" style="display: none;">
+    <ul>
+      <li><a href="#" onclick="playVideo('materials/uncover_toothpaste-final.mp4', event);">Toothpaste</a></li>
+      <li><a href="#" onclick="playVideo('materials/uncover_spider-final.mp4', event);">Spider</a></li>
+      <li><a href="#" onclick="playVideo('materials/uncover_pen-final.mp4', event);">Pen</a></li>
+      <li><a href="#" onclick="playVideo('materials/uncover_plate-final.mp4', event);">Plate</a></li>
+      <li><a href="#" onclick="playVideo('materials/uncover_bottle-final.mp4', event);">Bottle</a></li>
+      <li><a href="#" onclick="playVideo('materials/uncover_pickup-final.mp4', event);">Pickup</a></li>
+    </ul>
+</div>
+
+<!-- Buttons for Golden Gate -->
+<div class="video-buttons" id="gg-buttons" style="display: none;">
+    <ul>
+      <li><a href="#" onclick="playVideo('materials/gg_left.mp4', event);">Left</a></li>
+      <li><a href="#" onclick="playVideo('materials/gg_right.mp4', event);">Right</a></li>
+      <li><a href="#" onclick="playVideo('materials/gg_up.mp4', event);">Up</a></li>
+      <li><a href="#" onclick="playVideo('materials/gg_down.mp4', event);">Down</a></li>
+      <li><a href="#" onclick="playVideo('materials/gg_zoomin.mp4', event);">Zoom in</a></li>
+      <li><a href="#" onclick="playVideo('materials/gg_zoomout.mp4', event);">Zoom out</a></li>
+    </ul>
+</div>
+
+<!-- Buttons for Sistine Chapel -->
+<div class="video-buttons" id="sc-buttons" style="display: none;">
+    <ul>
+      <li><a href="#" onclick="playVideo('materials/sc_left.mp4', event);">Left</a></li>
+      <li><a href="#" onclick="playVideo('materials/sc_right.mp4', event);">Right</a></li>
+      <li><a href="#" onclick="playVideo('materials/sc_down.mp4', event);">Down</a></li>
+      <li><a href="#" onclick="playVideo('materials/sc_zoomin.mp4', event);">Zoom in</a></li>
+    </ul>
+</div>
+
+
+<!-- Video Display -->
+<div class="single-image">
+    <span>
+        <video id="videoPlayer" loop muted playsinline width="3840" height="2160">
+            <source src="materials/wash_hand-final.mp4" type="video/mp4">
+        </video>
+    </span>
+</div>
+  
+  
+  <div class="copy" >  
+    <div class=content id="action-rich">
+      <h2><span style="font-weight: 400;">Action-Rich Simulations</span></h2>
+      <p><span style="font-weight: 400;">One major difference between an interactive real-world simulator and typical video generation is that a simulator should support a diverse set of actions. Below, we demonstrate how UniSim can simulate different experiences given different actions starting from the same initial frame.</span></p>
+    </div>
+  </div>
 
 <div class="single-image ">
   <span>
@@ -107,7 +193,7 @@
 
 
 <div class="copy" >
-  <div class=content id="diversity">    
+  <div class=content id="diversity">
     <h2><span style="font-weight: 400;">Diversity and Stochasticity</span></h2>
     <p>
       UniSim can also support highly diverse and stochastic environment transitions, such as diversity in objects being revealed after removing the towel, as well as locations and colors of objects being placed, as illustrated below.
@@ -123,7 +209,7 @@
 
 <div class="single-image ">
   <span>
-    <video loop muted playsinline autoplay width=3840 height=2160><source src="materials/put_word.mp4"></video>
+    <video loop muted playsinline autoplay width=3840 height=1060><source src="materials/put_word.mp4"></video>
   </span>
 </div>
 

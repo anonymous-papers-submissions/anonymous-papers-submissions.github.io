@@ -39,8 +39,7 @@ nav a {
 }
 
 nav a:hover {
-    background-color: #2980b9; /* color change on hover */
-    color: white; /* text color change on hover */
+    background-color: #ddd; /* color change on hover */
 }
 
 .section-anchor {
@@ -53,3 +52,53 @@ nav a:hover {
 .custom-button:hover {
     background-color: #2980b9 !important; /* Hover color */
 }
+
+
+.video-buttons ul li {
+    list-style-type: none;
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.video-buttons ul li a {
+    text-decoration: none;
+    background-color: #fff;
+    padding: 10px 20px;
+    border-radius: 15px;  /* This gives rounded rectangle appearance */
+    font-size: larger;
+    color: black;
+    transition: background-color 0.3s;
+    border: 1px solid black;
+}
+
+.video-buttons ul li a:hover {
+    background-color: #ddd;
+}
+
+.video-buttons {
+    display: flex;
+    justify-content: center;  /* Horizontally center the list items */
+}
+
+.scene-selection ul {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+.scene-selection ul li {
+    list-style-type: none;
+    margin: 0 15px;
+}
+
+.scene-selection ul li a img {
+    max-width: 150px;  /* Adjust as needed */
+    border-radius: 15px; /* Matching the style */
+    border: 1px solid black;
+    transition: box-shadow 0.3s;
+}
+
+.scene-selection ul li a:hover img {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
