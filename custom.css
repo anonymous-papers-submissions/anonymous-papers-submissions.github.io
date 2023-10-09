@@ -111,10 +111,19 @@ nav a:hover {
 
 .video-buttons ul {
     flex-direction: column;  /* Stack the buttons vertically */
+    width: 100%;  /* Ensure the ul takes the full width of its parent */
 }
 
 .video-buttons ul li {
+    display: flex;  /* Make li flex containers to center the buttons */
+    justify-content: center;  /* Horizontally center the buttons */
+    width: 100%;  /* Make each li take the full width of the ul */
     margin-bottom: 10px;  /* Add some spacing between stacked buttons */
+}
+
+.video-buttons ul li a {
+    display: block;  /* Make each button take up the full width of its container */
+    text-align: center;  /* Center the button text */
 }
 
 /* Styles for larger screens (e.g., tablets and desktops) */
@@ -128,7 +137,13 @@ nav a:hover {
     }
 
     .video-buttons ul li {
+        display: inline-block;  /* Reset flex display for li elements */
+        width: auto;  /* Reset width for li elements */
         margin: 0 15px;  /* Horizontal spacing for side-by-side buttons */
         margin-bottom: 0;  /* Reset vertical spacing */
+    }
+    
+    .video-buttons ul li a {
+        display: inline;  /* Reset button display */
     }
 }
